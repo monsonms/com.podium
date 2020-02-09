@@ -26,6 +26,6 @@ public class SampleJUnitTest extends JUnitTestBase {
   @Test
   public void testHomePageHasAHeader() {
     driver.get(baseUrl);
-    assertEquals(driver.getTitle(), PAGE_TITLE);
+    assertEquals(homepage.getTitle(), PAGE_TITLE);
   }
 }
