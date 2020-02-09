@@ -2,6 +2,7 @@ package com.podium.selenium;
 
 import java.net.URL;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -19,7 +20,7 @@ public class JUnitTestBase {
   protected static String baseUrl;
   protected static Capabilities capabilities;
 
-  protected WebDriver driver;
+  protected static WebDriver driver;
 
   @BeforeAll
   public static void loadConfig() throws Throwable {
@@ -34,5 +35,10 @@ public class JUnitTestBase {
   @BeforeEach
   public void initDriver() throws Throwable {
     driver = WebDriverPool.DEFAULT.getDriver(gridHubUrl, capabilities);
+  }
+  
+  @AfterAll
+  public static void tearDown() {
+	  driver.quit();
   }
 }

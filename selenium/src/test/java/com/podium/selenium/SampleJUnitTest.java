@@ -1,7 +1,10 @@
 package com.podium.selenium;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test; 
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Assertions;
 
 import org.openqa.selenium.support.PageFactory;
@@ -11,6 +14,9 @@ import com.podium.selenium.pages.HomePage;
 public class SampleJUnitTest extends JUnitTestBase {
 
   private HomePage homepage;
+  
+  private static final String PAGE_TITLE = 
+		"Interaction Management for Local Business | Reviews, SMS, Feedback | Podium";
 
   @BeforeEach
   public void initPageObjects() {
@@ -20,6 +26,6 @@ public class SampleJUnitTest extends JUnitTestBase {
   @Test
   public void testHomePageHasAHeader() {
     driver.get(baseUrl);
-    Assertions.assertFalse("".equals(homepage.header.getText()));
+    assertEquals(driver.getTitle(), PAGE_TITLE);
   }
 }
