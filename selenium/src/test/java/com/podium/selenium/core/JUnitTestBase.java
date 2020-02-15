@@ -1,4 +1,4 @@
-package com.podium.selenium;
+package com.podium.selenium.core;
 
 import java.net.URL;
 

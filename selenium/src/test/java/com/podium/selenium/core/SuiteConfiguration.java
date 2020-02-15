@@ -1,4 +1,4 @@
-package com.podium.selenium;
+package com.podium.selenium.core;
 
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;

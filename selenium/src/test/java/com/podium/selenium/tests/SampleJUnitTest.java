@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.openqa.selenium.support.PageFactory;
 
-import com.podium.selenium.JUnitTestBase;
+import com.podium.selenium.core.JUnitTestBase;
 import com.podium.selenium.pages.HomePage;
 
 public class SampleJUnitTest extends JUnitTestBase {
