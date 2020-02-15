@@ -1,14 +1,13 @@
-package com.podium.selenium;
+package com.podium.selenium.tests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Assertions;
-
 import org.openqa.selenium.support.PageFactory;
 
+import com.podium.selenium.JUnitTestBase;
 import com.podium.selenium.pages.HomePage;
 
 public class SampleJUnitTest extends JUnitTestBase {
