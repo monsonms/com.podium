@@ -19,6 +19,12 @@ Homebrew
 https://docs.brew.sh/Installation
 ```
 
+Local browser drivers
+
+```
+brew cask install chromedriver
+brew install geckodriver
+```
 
 
 ### Running the tests
@@ -32,8 +38,6 @@ https://github.com/monsonms/com.podium.git
 To run tests locally
 
 ```
-brew cask install chromedriver
-brew install geckodriver
 mvn -P chrome,localhost,nogrid clean test
 mvn -P firefox,localhost,nogrid clean test
 ```
