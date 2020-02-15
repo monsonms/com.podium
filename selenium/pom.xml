@@ -67,7 +67,6 @@
         <configuration>
           <includes>
             <include>**/*Test.java</include>
-            <include>VisitHomeTest.java</include>
           </includes>
           <systemPropertyVariables>
             <application.properties>/application.properties</application.properties>
@@ -82,6 +81,24 @@
           <target>8</target>
         </configuration>
       </plugin>
+      <plugin>
+		    <groupId>com.spotify</groupId>
+		    <artifactId>dockerfile-maven-plugin</artifactId>
+		    <version>1.3.5</version>
+		    <executions>
+		        <execution>
+		            <id>default</id>
+		            <goals>
+		                <goal>build</goal>
+		                <goal>push</goal>
+		            </goals>
+		        </execution>
+		    </executions>
+		    <configuration>
+		        <repository>com.podium/selenium</repository>
+		        <tag>mytest</tag>
+		    </configuration>
+		</plugin>
     </plugins>
   </build>
   <!-- profiles -->
@@ -161,7 +178,7 @@
     <profile>
       <id>grid</id>
       <properties>
-        <grid.url>http://localhost:4444/wd/hub/</grid.url>
+        <grid.url>http://selenium-hub:4444/wd/hub/</grid.url>
       </properties>
     </profile>
   </profiles>
