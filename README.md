@@ -23,7 +23,7 @@ https://docs.brew.sh/Installation
 
 ### Running the tests
 
-1. Clone the project locally
+Clone the project locally
 
 ```
 https://github.com/monsonms/com.podium.git
@@ -33,8 +33,9 @@ To run tests locally
 
 ```
 brew cask install chromedriver
-brew  install geckodriver
-mvn -P chrome,localhost,grid clean test
+brew install geckodriver
+mvn -P chrome,localhost,nogrid clean test
+mvn -P firefox,localhost,nogrid clean test
 ```
 
 To run tests in docker
@@ -42,6 +43,7 @@ To run tests in docker
 ```
 docker-compose up -d 
 docker exec -it selenium_tests_1  mvn -P chrome,localhost,grid clean test
+docker exec -it selenium_tests_1  mvn -P firefox,localhost,grid clean test
 docker-compose down --remove-orphans
 ```
 
