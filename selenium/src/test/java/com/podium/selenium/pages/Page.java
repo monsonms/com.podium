@@ -21,5 +21,4 @@ public abstract class Page {
   public String getTitle() {
     return driver.getTitle();
   }
-
 }
