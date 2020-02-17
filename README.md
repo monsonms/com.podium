@@ -19,6 +19,12 @@ Homebrew
 https://docs.brew.sh/Installation
 ```
 
+Java 8
+
+```
+brew cask install adoptopenjdk8
+```
+
 Local browser drivers
 
 ```
