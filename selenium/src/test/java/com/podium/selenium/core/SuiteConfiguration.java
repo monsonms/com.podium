@@ -1,6 +1,7 @@
 package com.podium.selenium.core;
 
 import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
@@ -39,6 +40,11 @@ public class SuiteConfiguration {
 			} else if (value.startsWith("file:")) {
 				capabilities.setCapability(name,
 						new File(".", value.substring(5)).getCanonicalFile().getAbsolutePath());
+			} else if (value.equals("chrome")) { 
+				ChromeOptions chromeOptions = new ChromeOptions();
+				chromeOptions.addArguments("--no-sandbox");
+				chromeOptions.addArguments("--disable-dev-shm-usage");
+				capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 			} else {
 				capabilities.setCapability(name, value);
 			}

@@ -62,19 +62,20 @@ public class HomePage extends Page {
 		return new CustomerStoriesPage(driver);
 	}
 
-	public ReviewsPage clickReviews() {
+	public ReviewsPage clickReviewsLink() {
 		new Actions(driver).moveToElement(productsButton).build().perform();
 		waitUntilClickable(reviewsButton);
 		reviewsButton.click();
 		return new ReviewsPage(driver);
 	}
 
-	public PricingPage clickPricing() {
+	public PricingPage clickPricingLink() {
 		pricingLink.click();
 		return new PricingPage(driver);
 	}
 
 	public LoginPage clickLoginLink() {
+		waitUntilClickable(loginLink);
 		loginLink.click();
 		return new LoginPage(driver);
 	}

@@ -13,16 +13,16 @@ public class ProductsLinksTest extends JUnitTestBase {
 	  private PricingPage pricingPage;
 	  
 	  /**
-	   * Just test 2 types of links for now
+	   * Test a link with hover and a direct link
 	   */
 	  @Test
 	  public void nagigateToProductsLinks() {
 		homepage = new HomePage(driver, baseUrl);
 		homepage.get();
-		reviewsPage = homepage.clickReviews();
+		reviewsPage = homepage.clickReviewsLink();
 		assertTrue(reviewsPage.headerIsPresent());
 		
-		pricingPage = homepage.clickPricing();
+		pricingPage = homepage.clickPricingLink();
 		assertTrue(pricingPage.headerIsPresent());
 	  }
 }
