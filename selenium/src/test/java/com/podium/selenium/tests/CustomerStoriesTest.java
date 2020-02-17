@@ -15,10 +15,11 @@ public class CustomerStoriesTest extends JUnitTestBase {
 	 
 	  @Test
 	  public void nagigateToCustomerStories() {
-		homepage = new HomePage(driver);
-	    driver.get(baseUrl);
+		homepage = new HomePage(driver, baseUrl);
+		homepage.get();
 	    customerStoriesPage = homepage.clickCustomerStories();
 	    assertEquals(customerStoriesPage.getTitle(), PAGE_TITLE);
+	    
 	    customerStoriesPage.clickFilterButton();
 	    customerStoriesPage.clickAutoServicesLink();
 	    assertTrue(customerStoriesPage.areAutoServiceStoriesEnabled());

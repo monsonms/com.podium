@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.podium.selenium.tests.LoginPage;
+import com.podium.selenium.pages.LoginPage;
 
 public class HomePage extends Page {  
   @FindBy(how = How.XPATH, using = "//li/a[contains(text(), 'Customer Stories')]")
@@ -36,22 +36,34 @@ public class HomePage extends Page {
   @FindBy(how = How.LINK_TEXT, using = "Login")
   @CacheLookup
   public WebElement loginLink;
+  
+  @FindBy(how = How.LINK_TEXT, using = "Watch Demo")
+  @CacheLookup
+  public WebElement watchDemoLink;
+  
+  String url;
+  private static final Long TIMEOUT = 2000L;
 
-  public HomePage(WebDriver webDriver) {
+  public HomePage(WebDriver webDriver, String url) {
     super(webDriver);
+    this.url = url;
     PageFactory.initElements(driver, this);
+  }
+  
+  public void get() {
+	  driver.get(url);
   }
   
   public CustomerStoriesPage clickCustomerStories() {
 	  new Actions(driver).moveToElement(resourcesButton).build().perform();
-	  new WebDriverWait(driver, 2000).until(ExpectedConditions.elementToBeClickable(customerStoriesButton));
+	  new WebDriverWait(driver, TIMEOUT).until(ExpectedConditions.elementToBeClickable(customerStoriesButton));
 	  customerStoriesButton.click();
 	  return new CustomerStoriesPage(driver);
   }
   
   public ReviewsPage clickReviews() {
 	  new Actions(driver).moveToElement(productsButton).build().perform();
-	  new WebDriverWait(driver, 2000).until(ExpectedConditions.elementToBeClickable(reviewsButton));
+	  new WebDriverWait(driver, TIMEOUT).until(ExpectedConditions.elementToBeClickable(reviewsButton));
 	  reviewsButton.click();
 	  return new ReviewsPage(driver);
   }
@@ -64,5 +76,10 @@ public class HomePage extends Page {
 	public LoginPage clickLoginLink() {
 		loginLink.click();
 		return new LoginPage(driver);
+	}
+
+	public DemoPage clickWatchDemoLink() {
+		watchDemoLink.click();
+		return new DemoPage(driver);
 	}
 }

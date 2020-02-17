@@ -1,4 +1,4 @@
-package com.podium.selenium.tests;
+package com.podium.selenium.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -41,7 +41,6 @@ public class LoginPage extends Page {
 	}
 	
 	public Boolean titleIsPresent() {
-		System.out.println("Title: "+getTitle());
 		return getTitle().contains(PAGE_TITLE);
 	}
 	
