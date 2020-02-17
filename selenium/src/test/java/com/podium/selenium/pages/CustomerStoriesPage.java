@@ -18,7 +18,7 @@ public class CustomerStoriesPage extends Page {
 	@CacheLookup
 	public WebElement autoServicesLink;
 	
-	@FindBy(how = How.CSS, using = ".story-card.auto-services h3")
+	@FindBy(how = How.CSS, using = ".story-card.auto-services")
 	@CacheLookup
 	public List<WebElement> stories;
 
@@ -36,9 +36,9 @@ public class CustomerStoriesPage extends Page {
 		autoServicesLink.click();
 	}
 	
-	public Boolean areAutoServiceStoriesEnabled() {
+	public Boolean areAutoServiceStoriesDisplayed() {
 		for(WebElement we: stories) {
-			if(!we.getText().contains("AUTO SERVICES")) {
+			if(!we.isDisplayed()) {
 				return false;
 			}
 		}

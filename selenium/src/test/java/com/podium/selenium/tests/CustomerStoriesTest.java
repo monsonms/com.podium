@@ -17,6 +17,6 @@ public class CustomerStoriesTest extends JUnitTestBase {
 		customerStoriesPage = homepage.clickCustomerStories();
 		customerStoriesPage.clickFilterButton();
 		customerStoriesPage.clickAutoServicesLink();
-		assertTrue(customerStoriesPage.areAutoServiceStoriesEnabled());
+		assertTrue(customerStoriesPage.areAutoServiceStoriesDisplayed());
 	}
 }
