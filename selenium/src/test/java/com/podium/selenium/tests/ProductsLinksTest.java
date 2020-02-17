@@ -20,11 +20,9 @@ public class ProductsLinksTest extends JUnitTestBase {
 		homepage = new HomePage(driver, baseUrl);
 		homepage.get();
 		reviewsPage = homepage.clickReviews();
-		assertTrue(reviewsPage.titleIsPresent());
 		assertTrue(reviewsPage.headerIsPresent());
 		
 		pricingPage = homepage.clickPricing();
-		assertTrue(pricingPage.titleIsPresent());
 		assertTrue(pricingPage.headerIsPresent());
 	  }
 }

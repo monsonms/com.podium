@@ -13,7 +13,7 @@ public class WatchDemoTest extends JUnitTestBase {
 	private DemoPage demoPage;
 
 	@Test
-	public void testLoginPage() {
+	public void testWatchDemo() {
 		homepage = new HomePage(driver, baseUrl);
 		homepage.get();
 		demoPage = homepage.clickWatchDemoLink();

@@ -18,6 +18,7 @@ public class EbooksPage extends Page {
 	}
 
 	public GenericEbookPage clickFirstEbook() {
+		waitUntilClickable(firstEbook);
 		firstEbook.click();
 		return new GenericEbookPage(driver);
 	}

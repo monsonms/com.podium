@@ -7,8 +7,6 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.podium.selenium.pages.LoginPage;
 
@@ -46,7 +44,6 @@ public class HomePage extends Page {
 	public WebElement ebooksLink;
 
 	String url;
-	private static final Long TIMEOUT = 2000L;
 
 	public HomePage(WebDriver webDriver, String url) {
 		super(webDriver);
@@ -60,14 +57,14 @@ public class HomePage extends Page {
 
 	public CustomerStoriesPage clickCustomerStories() {
 		new Actions(driver).moveToElement(resourcesButton).build().perform();
-		new WebDriverWait(driver, TIMEOUT).until(ExpectedConditions.elementToBeClickable(customerStoriesButton));
+		waitUntilClickable(customerStoriesButton);
 		customerStoriesButton.click();
 		return new CustomerStoriesPage(driver);
 	}
 
 	public ReviewsPage clickReviews() {
 		new Actions(driver).moveToElement(productsButton).build().perform();
-		new WebDriverWait(driver, TIMEOUT).until(ExpectedConditions.elementToBeClickable(reviewsButton));
+		waitUntilClickable(reviewsButton);
 		reviewsButton.click();
 		return new ReviewsPage(driver);
 	}
@@ -83,13 +80,14 @@ public class HomePage extends Page {
 	}
 
 	public DemoPage clickWatchDemoLink() {
+		waitUntilClickable(watchDemoLink);
 		watchDemoLink.click();
 		return new DemoPage(driver);
 	}
 
 	public EbooksPage clickEbooksLink() {
 		new Actions(driver).moveToElement(resourcesButton).build().perform();
-		new WebDriverWait(driver, TIMEOUT).until(ExpectedConditions.elementToBeClickable(ebooksLink));
+		waitUntilClickable(ebooksLink);
 		ebooksLink.click();
 		return new EbooksPage(driver);
 	}

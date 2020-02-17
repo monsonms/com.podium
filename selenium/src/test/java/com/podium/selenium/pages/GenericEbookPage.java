@@ -18,6 +18,7 @@ public class GenericEbookPage extends Page {
 	}
 
 	public Boolean isEbookSectionDisplayed() {
+		waitUntilVisible(ebookSection);
 		return ebookSection.isDisplayed();
 	}
 }

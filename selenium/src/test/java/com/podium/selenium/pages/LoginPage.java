@@ -10,9 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import com.podium.selenium.pages.Page;
 
 public class LoginPage extends Page {
-
-	private static final String PAGE_TITLE = "Sign In";
-	private static final String HEADER_TEXT = "custom price quote";
 	private static final String ERROR_TEXT = "Email or mobile number is required";
 	
 	@FindBy(how = How.CSS, using = "h1")
@@ -35,20 +32,9 @@ public class LoginPage extends Page {
 		super(webDriver);
 		PageFactory.initElements(driver, this);
 	}
-	
-	public String getHeader() {
-		return header.getText();
-	}
-	
-	public Boolean titleIsPresent() {
-		return getTitle().contains(PAGE_TITLE);
-	}
-	
-	public Boolean headerIsPresent() {
-		return getHeader().contains(HEADER_TEXT);
-	}
 
 	public void clickLoginButton() {
+		waitUntilClickable(loginButton);
 		loginButton.click();
 	}
 	

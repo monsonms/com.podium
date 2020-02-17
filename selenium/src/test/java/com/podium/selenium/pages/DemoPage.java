@@ -18,6 +18,7 @@ public class DemoPage extends Page {
 	}
 
 	public Boolean videoIsDisplayed() {
+		waitUntilVisible(video);
 		return video.isDisplayed();
 	}
 }

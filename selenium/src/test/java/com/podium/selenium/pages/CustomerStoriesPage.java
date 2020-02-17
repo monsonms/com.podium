@@ -28,13 +28,12 @@ public class CustomerStoriesPage extends Page {
 	}
 	
 	public void clickFilterButton() {
+		waitUntilClickable(filterButton);
 		filterButton.click();
-
 	}
 	
 	public void clickAutoServicesLink() {
 		autoServicesLink.click();
-
 	}
 	
 	public Boolean areAutoServiceStoriesEnabled() {

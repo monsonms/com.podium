@@ -20,8 +20,6 @@ public class LoginTest extends JUnitTestBase {
 		homepage = new HomePage(driver, baseUrl);
 		homepage.get();
 	    loginPage = homepage.clickLoginLink();
-	    assertTrue(loginPage.titleIsPresent());
-	    
 	    loginPage.clickLoginButton();
 	    assertTrue(loginPage.errorTextIsPresent());
 	    
