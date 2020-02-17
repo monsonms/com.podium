@@ -19,5 +19,4 @@ public class WatchDemoTest extends JUnitTestBase {
 		  demoPage = homepage.clickWatchDemoLink();
 		  assertTrue(demoPage.videoIsDisplayed());
 	  }
-
 }
