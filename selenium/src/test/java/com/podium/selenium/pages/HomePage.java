@@ -10,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.podium.selenium.tests.LoginPage;
+
 public class HomePage extends Page {  
   @FindBy(how = How.XPATH, using = "//li/a[contains(text(), 'Customer Stories')]")
   @CacheLookup
@@ -30,6 +32,10 @@ public class HomePage extends Page {
   @FindBy(how = How.LINK_TEXT, using = "Pricing")
   @CacheLookup
   public WebElement pricingLink;
+  
+  @FindBy(how = How.LINK_TEXT, using = "Login")
+  @CacheLookup
+  public WebElement loginLink;
 
   public HomePage(WebDriver webDriver) {
     super(webDriver);
@@ -54,4 +60,9 @@ public class HomePage extends Page {
 	  pricingLink.click();
 	  return new PricingPage(driver);
   }
+
+	public LoginPage clickLoginLink() {
+		loginLink.click();
+		return new LoginPage(driver);
+	}
 }
