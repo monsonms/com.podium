@@ -21,7 +21,7 @@ public class CustomerStoriesPage extends Page {
 	@FindBy(how = How.CSS, using = ".story-card.auto-services h3")
 	@CacheLookup
 	public List<WebElement> stories;
-	
+
 	public CustomerStoriesPage(WebDriver webDriver) {
 		super(webDriver);
 		PageFactory.initElements(driver, this);

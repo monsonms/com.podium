@@ -9,14 +9,14 @@ import com.podium.selenium.pages.DemoPage;
 import com.podium.selenium.pages.HomePage;
 
 public class WatchDemoTest extends JUnitTestBase {
-	  private HomePage homepage;
-	  private DemoPage demoPage;
+	private HomePage homepage;
+	private DemoPage demoPage;
 
-	  @Test
-	  public void testLoginPage() {
-		  homepage = new HomePage(driver, baseUrl);
-		  homepage.get();
-		  demoPage = homepage.clickWatchDemoLink();
-		  assertTrue(demoPage.videoIsDisplayed());
-	  }
+	@Test
+	public void testLoginPage() {
+		homepage = new HomePage(driver, baseUrl);
+		homepage.get();
+		demoPage = homepage.clickWatchDemoLink();
+		assertTrue(demoPage.videoIsDisplayed());
+	}
 }

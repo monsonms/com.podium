@@ -7,17 +7,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class DemoPage extends Page {
-	@FindBy(how = How.CSS, using = ".videoInForm")
+public class GenericEbookPage extends Page {
+	@FindBy(how = How.CSS, using = "section.pod-resource-download-page-section")
 	@CacheLookup
-	public WebElement video;
+	public WebElement ebookSection;
 
-	public DemoPage(WebDriver webDriver) {
+	public GenericEbookPage(WebDriver webDriver) {
 		super(webDriver);
 		PageFactory.initElements(driver, this);
 	}
 
-	public Boolean videoIsDisplayed() {
-		return video.isDisplayed();
+	public Boolean isEbookSectionDisplayed() {
+		return ebookSection.isDisplayed();
 	}
 }

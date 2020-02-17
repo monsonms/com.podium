@@ -7,17 +7,18 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class DemoPage extends Page {
-	@FindBy(how = How.CSS, using = ".videoInForm")
+public class EbooksPage extends Page {
+	@FindBy(how = How.CSS, using = "#ebooks > a:nth-child(1) > img")
 	@CacheLookup
-	public WebElement video;
+	public WebElement firstEbook;
 
-	public DemoPage(WebDriver webDriver) {
+	public EbooksPage(WebDriver webDriver) {
 		super(webDriver);
 		PageFactory.initElements(driver, this);
 	}
 
-	public Boolean videoIsDisplayed() {
-		return video.isDisplayed();
+	public GenericEbookPage clickFirstEbook() {
+		firstEbook.click();
+		return new GenericEbookPage(driver);
 	}
 }
