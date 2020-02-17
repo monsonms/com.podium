@@ -46,8 +46,8 @@ To run tests in docker
 
 ```
 docker-compose up -d 
-docker exec -it selenium_tests_1  mvn -P chrome,localhost,grid clean test
-docker exec -it selenium_tests_1  mvn -P firefox,localhost,grid clean test
+docker exec -it selenium_tests mvn -P chrome,localhost,grid clean test
+docker exec -it selenium_tests mvn -P firefox,localhost,grid clean test
 docker-compose down
 ```
 
