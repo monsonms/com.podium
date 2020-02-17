@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,9 +18,22 @@ public class HomePage extends Page {
   @FindBy(how = How.XPATH, using = "//span[contains(text(), 'Resources')]")
   @CacheLookup
   public WebElement resourcesButton;
+  
+  @FindBy(how = How.XPATH, using = "//li[contains(@class,'wpmm_dropdown_menu')]/span[contains(text(), 'Products')]")
+  @CacheLookup
+  public WebElement productsButton;
+  
+  @FindBy(how = How.XPATH, using = "//li/a[contains(text(), 'Reviews')]")
+  @CacheLookup
+  public WebElement reviewsButton;
+  
+  @FindBy(how = How.LINK_TEXT, using = "Pricing")
+  @CacheLookup
+  public WebElement pricingLink;
 
   public HomePage(WebDriver webDriver) {
     super(webDriver);
+    PageFactory.initElements(driver, this);
   }
   
   public CustomerStoriesPage clickCustomerStories() {
@@ -27,5 +41,17 @@ public class HomePage extends Page {
 	  new WebDriverWait(driver, 2000).until(ExpectedConditions.elementToBeClickable(customerStoriesButton));
 	  customerStoriesButton.click();
 	  return new CustomerStoriesPage(driver);
+  }
+  
+  public ReviewsPage clickReviews() {
+	  new Actions(driver).moveToElement(productsButton).build().perform();
+	  new WebDriverWait(driver, 2000).until(ExpectedConditions.elementToBeClickable(reviewsButton));
+	  reviewsButton.click();
+	  return new ReviewsPage(driver);
+  }
+  
+  public PricingPage clickPricing() {
+	  pricingLink.click();
+	  return new PricingPage(driver);
   }
 }
